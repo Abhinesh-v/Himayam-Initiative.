@@ -26,6 +26,7 @@
             --contact-card-bg: #f1c041; /* New background for contact card */
             --contact-card-text: #012949; /* New text color for contact card */
             --section-enhanced-bg: #e8f0fe; /* Light blue background for enhanced section */
+            --secured-badge-bg: #28a745; /* Green for secured admission */
         }
 
         /* Base Body Styles */
@@ -215,8 +216,10 @@
         /* Container for WhatsApp button and Contact Card */
         .contact-cta-group {
             display: flex;
-            flex-direction: column; /* Stack vertically on small screens */
-            align-items: center;
+            flex-direction: row; /* Arranged horizontally */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: center;
+            align-items: stretch; /* Make children stretch to same height */
             gap: 20px; /* Space between items */
             margin-top: 30px;
         }
@@ -226,7 +229,7 @@
             display: flex; /* Use flex to center content */
             align-items: center;
             justify-content: center;
-            padding: 20px 40px; /* Increased padding */
+            padding: 20px 40px; /* Consistent padding */
             border-radius: 25px; /* Consistent rounded corners */
             text-decoration: none;
             font-weight: bold;
@@ -236,7 +239,7 @@
             border: 2px solid var(--whatsapp-green);
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            width: 100%; /* Take full width of parent */
+            flex-grow: 1; /* Allow button to grow */
             max-width: 400px; /* Max width for consistency */
             box-sizing: border-box; /* Include padding in width */
         }
@@ -252,23 +255,32 @@
         .contact-card {
             background-color: var(--contact-card-bg); /* New background color */
             color: var(--contact-card-text); /* New text color */
-            padding: 20px;
+            padding: 20px 40px; /* Consistent padding with button */
             border-radius: 25px; /* Consistent rounded corners */
-            font-size: 1.3em; /* Adjusted font size to match button */
             font-weight: bold;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
-            width: 100%; /* Take full width of parent */
+            flex-grow: 1; /* Allow card to grow */
             max-width: 400px; /* Max width for consistency */
             box-sizing: border-box; /* Include padding in width */
             display: flex; /* Use flex to center content */
+            flex-direction: column; /* Stack text inside vertically */
             align-items: center;
             justify-content: center;
-            min-height: 60px; /* Ensure minimum height similar to button */
+        }
+
+        .contact-card .contact-text {
+            font-size: 1.3em; /* Adjusted font size to match button */
+            line-height: 1.2; /* Adjust line height for single line appearance */
+            white-space: normal; /* Allow text wrapping */
+            margin-bottom: 5px; /* Space between text and number */
         }
 
         .contact-card .phone-number {
+            font-size: 1.6em; /* Bigger font size for phone number */
+            font-weight: bolder; /* Bolder font weight for phone number */
             color: var(--contact-card-text); /* Ensure phone number color matches card text */
+            white-space: nowrap; /* Keep phone number on single line */
         }
 
         /* Meet the Students Section */
@@ -314,13 +326,29 @@
             color: var(--himayam-blue);
             margin-bottom: 18px;
             display: flex;
-            align-items: center;
-            gap: 12px;
+            align-items: flex-start; /* Align the icon and name-group to the start */
+            gap: 0; /* No gap between icon and name group directly */
         }
 
         .student-card .icon {
             font-size: 1.8em;
             color: var(--himayam-yellow);
+            margin-right: 12px; /* Add margin to the right of the icon */
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+
+        .student-card .student-name-group {
+            display: flex;
+            flex-direction: column; /* Stack name and badge vertically */
+            align-items: flex-start; /* Align items to the start */
+            width: calc(100% - 1.8em - 12px); /* Adjust width to fit icon and its margin */
+            flex-grow: 1; /* Allow the group to take available space */
+        }
+
+        .student-card .student-name {
+            font-size: 1em; /* Keep student name size relative to h3 */
+            font-weight: bold;
+            line-height: 1.2; /* Ensure name doesn't take too much vertical space */
         }
 
         .student-card p {
@@ -337,17 +365,32 @@
             margin-top: auto; /* Push note to the bottom */
         }
 
+        /* Badge for "Waiting for a Sponsor" and "Admission Secured" - Smaller and Consistent */
+        .badge-waiting, .badge-secured {
+            display: inline-block; /* Changed to inline-block for better flow within flex */
+            padding: 3px 6px; /* Smaller padding */
+            border-radius: 4px; /* Slightly smaller border-radius */
+            font-size: 0.65em; /* Even smaller font size */
+            font-weight: normal;
+            margin-top: 4px; /* Small vertical space from the name above */
+            margin-left: 0; /* Remove left margin */
+            white-space: nowrap; /* Prevent text wrapping */
+            align-self: flex-start; /* Align badge to the start within its column */
+            max-width: 100%; /* Ensure badge does not overflow its container */
+            box-sizing: border-box; /* Include padding in width */
+            overflow: hidden; /* Hide overflowing text if it still occurs */
+            text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+        }
+
         .badge-waiting {
-            display: inline-block;
             background-color: #d9534f; /* Red */
             color: white;
-            padding: 4px 8px;
-            border-radius: 5px;
-            font-size: 0.7em; /* Small font size */
-            font-weight: normal;
-            margin-left: 10px;
-            vertical-align: middle;
-            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        /* Badge for "Admission Secured" */
+        .badge-secured {
+            background-color: var(--secured-badge-bg); /* Green for secured admission */
+            color: white;
         }
 
         /* Sponsorship Tracker Section */
@@ -463,8 +506,13 @@
                 font-size: 1.2em;
             }
             .contact-card {
-                font-size: 1.3em;
-                padding: 18px;
+                padding: 18px 35px; /* Adjusted padding for consistency */
+            }
+            .contact-card .contact-text {
+                font-size: 1.1em;
+            }
+            .contact-card .phone-number {
+                font-size: 1.4em;
             }
         }
 
@@ -510,8 +558,13 @@
                 font-size: 1.1em;
             }
             .contact-card {
-                font-size: 1.1em;
-                padding: 15px;
+                padding: 15px 30px; /* Adjusted padding for consistency */
+            }
+            .contact-card .contact-text {
+                font-size: 1em;
+            }
+            .contact-card .phone-number {
+                font-size: 1.2em;
             }
             .contact-cta-group {
                 flex-direction: column; /* Stack vertically on small screens */
@@ -589,7 +642,8 @@
             <div class="contact-cta-group">
                 <a href="https://wa.me/917305585095" target="_blank" class="btn-whatsapp-sponsor">Chat with us on WhatsApp</a>
                 <div class="contact-card">
-                    Call/ WhatsApp us - we'll guide you: <span class="phone-number">73055 85095</span>
+                    <span class="contact-text">Call/ WhatsApp us - we'll guide you:</span>
+                    <span class="phone-number">73055 85095</span>
                 </div>
             </div>
         </div>
@@ -601,12 +655,24 @@
             <p class="intro-text">Real stories. Real needs. Real impact.</p>
             <div class="student-stories">
                 <div class="student-card">
-                    <h3><span class="icon">📖</span> Ravi <span style="font-size: 0.7em; font-weight: normal;">(Admission Secured – Thanks to a Sponsor)</span></h3>
+                    <h3>
+                        <span class="icon">📖</span> 
+                        <span class="student-name-group">
+                            <span class="student-name">Ravi</span>
+                            <span class="badge-secured">Admission Secured – Thanks to a Sponsor</span>
+                        </span>
+                    </h3>
                     <p>Lost both parents at a young age. Raised by a compassionate NGO, Ravi never imagined college could be within reach. Now, he’s been offered admission to B.Sc Artificial Intelligence at <span class="highlight-text">Himayam College</span>, thanks to a generous sponsor. With this support, Ravi is one step closer to building the future he once thought was impossible.</p>
                     <p class="note"><em>(Name changed to protect identity. Real info will be shared privately upon request.)</em></p>
                 </div>
                 <div class="student-card">
-                    <h3><span class="icon">📖</span> Anitha <span class="badge-waiting">Waiting for a Sponsor</span></h3>
+                    <h3>
+                        <span class="icon">📖</span> 
+                        <span class="student-name-group">
+                            <span class="student-name">Anitha</span>
+                            <span class="badge-waiting">Waiting for a Sponsor</span>
+                        </span>
+                    </h3>
                     <p>Anitha spends long hours at a small jewellery store to help support her family. But her heart beats for education — she dreams of earning a B.Com degree and building a life beyond survival. She’s been welcomed with admission at <span class="highlight-text">Himayam College</span>, but still awaits a sponsor to turn that opportunity into reality.</p>
                     <p class="note"><em>(Name changed to protect identity. Real info will be shared privately upon request.)</em></p>
                 </div>
