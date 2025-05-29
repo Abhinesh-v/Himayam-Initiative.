@@ -23,6 +23,9 @@
             --whatsapp-green-hover: #075E54; /* Darker shade for hover */
             --needs-sponsor-bg: #ffe0e0; /* Light red background for rows needing sponsor */
             --needs-sponsor-text: #d9534f; /* Red text for 'Waiting for Sponsor' */
+            --contact-card-bg: #f1c041; /* New background for contact card */
+            --contact-card-text: #012949; /* New text color for contact card */
+            --section-enhanced-bg: #e8f0fe; /* Light blue background for enhanced section */
         }
 
         /* Base Body Styles */
@@ -47,7 +50,7 @@
         }
 
         .global-header img {
-            max-width: 250px; /* Adjust size as needed */
+            max-width: 350px; /* Increased size for the logo */
             height: auto;
         }
 
@@ -103,9 +106,9 @@
             margin: 0 auto;
         }
 
-        /* Remove the hero-logo from hero section as it's now in global header */
+        /* Hide the old logo in hero section as it's now in global header */
         .hero-logo {
-            display: none; /* Hide the old logo in hero section */
+            display: none;
         }
 
         .hero-section h1 {
@@ -151,9 +154,9 @@
             font-weight: bold;
         }
 
-        /* Sponsorship Options Section */
+        /* Sponsorship Options Section - Enhanced Background */
         .sponsorship-options-section {
-            background-color: #fff;
+            background-color: var(--section-enhanced-bg); /* Enhanced background color */
             text-align: center;
         }
 
@@ -209,20 +212,33 @@
             margin: 0 auto 30px auto; /* Added bottom margin */
         }
 
-        /* WhatsApp Button within Sponsorship Section */
+        /* Container for WhatsApp button and Contact Card */
+        .contact-cta-group {
+            display: flex;
+            flex-direction: column; /* Stack vertically on small screens */
+            align-items: center;
+            gap: 20px; /* Space between items */
+            margin-top: 30px;
+        }
+
+        /* WhatsApp Button within Sponsorship Section - Better and Bigger */
         .btn-whatsapp-sponsor {
-            display: inline-block;
-            padding: 18px 35px;
-            border-radius: 50px;
+            display: flex; /* Use flex to center content */
+            align-items: center;
+            justify-content: center;
+            padding: 20px 40px; /* Increased padding */
+            border-radius: 25px; /* Consistent rounded corners */
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2em;
-            background-color: var(--whatsapp-green); /* New WhatsApp green */
+            font-size: 1.3em; /* Increased font size */
+            background-color: var(--whatsapp-green);
             color: white;
             border: 2px solid var(--whatsapp-green);
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            margin-top: 20px; /* Spacing from text above */
+            width: 100%; /* Take full width of parent */
+            max-width: 400px; /* Max width for consistency */
+            box-sizing: border-box; /* Include padding in width */
         }
 
         .btn-whatsapp-sponsor:hover {
@@ -232,16 +248,27 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Contact details text */
-        .contact-details {
-            font-size: 1.2em;
-            color: #555;
-            margin-top: 20px; /* Space from button */
+        /* Contact Details Card */
+        .contact-card {
+            background-color: var(--contact-card-bg); /* New background color */
+            color: var(--contact-card-text); /* New text color */
+            padding: 20px;
+            border-radius: 25px; /* Consistent rounded corners */
+            font-size: 1.3em; /* Adjusted font size to match button */
             font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%; /* Take full width of parent */
+            max-width: 400px; /* Max width for consistency */
+            box-sizing: border-box; /* Include padding in width */
+            display: flex; /* Use flex to center content */
+            align-items: center;
+            justify-content: center;
+            min-height: 60px; /* Ensure minimum height similar to button */
         }
 
-        .contact-details .phone-number {
-            color: var(--highlight-red); /* Highlight phone number */
+        .contact-card .phone-number {
+            color: var(--contact-card-text); /* Ensure phone number color matches card text */
         }
 
         /* Meet the Students Section */
@@ -308,6 +335,19 @@
             color: #777;
             font-style: italic;
             margin-top: auto; /* Push note to the bottom */
+        }
+
+        .badge-waiting {
+            display: inline-block;
+            background-color: #d9534f; /* Red */
+            color: white;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-size: 0.7em; /* Small font size */
+            font-weight: normal;
+            margin-left: 10px;
+            vertical-align: middle;
+            white-space: nowrap; /* Prevent text wrapping */
         }
 
         /* Sponsorship Tracker Section */
@@ -419,11 +459,12 @@
                 font-size: 1.1em;
             }
             .btn-whatsapp-sponsor {
-                padding: 15px 30px;
-                font-size: 1.1em;
+                padding: 18px 35px; /* Adjust for smaller screens */
+                font-size: 1.2em;
             }
-            .contact-details {
-                font-size: 1.1em;
+            .contact-card {
+                font-size: 1.3em;
+                padding: 18px;
             }
         }
 
@@ -465,11 +506,15 @@
                 font-size: 0.9em;
             }
             .btn-whatsapp-sponsor {
-                padding: 12px 25px;
-                font-size: 1em;
+                padding: 15px 30px;
+                font-size: 1.1em;
             }
-            .contact-details {
-                font-size: 1em;
+            .contact-card {
+                font-size: 1.1em;
+                padding: 15px;
+            }
+            .contact-cta-group {
+                flex-direction: column; /* Stack vertically on small screens */
             }
         }
 
@@ -503,12 +548,12 @@
 </head>
 <body>
     <header class="global-header">
-        <img src="Himayam college logo with text.jpg" alt="Himayam College Logo">
+        <img src="https://i.postimg.cc/rmSkW8G2/Himayam-college-logo-with-text.png" alt="Himayam College Logo">
     </header>
 
     <section class="hero-section">
         <div class="hero-content">
-            <h1>At <span class="highlight-text">Himayam College</span>, we believe<br>No student should be denied education<br>because of money.</h1>
+            <h1>At <span class="highlight-text">Himayam College</span>, we believe<br>No student should be denied<br>education because of money.</h1>
             <p>That's not just a dream — it's our mission. This year, we've promised support to over 60 deserving students, helping them build brighter futures.</p>
             <p>You can be a vital part of this mission by sponsoring a student. You'll get monthly updates on their transformation, celebrating with us when they secure a job after three years.</p>
         </div>
@@ -540,8 +585,13 @@
                 </div>
             </div>
             <p class="sponsorship-footer-text">Want to support more than 1 student, give a one-time amount, or offer partial help?</p>
-            <a href="https://wa.me/917305585095" target="_blank" class="btn-whatsapp-sponsor">Chat with us on WhatsApp</a>
-            <p class="contact-details">Call/ WhatsApp us - we'll guide you: <span class="phone-number">73055 85095</span></p>
+            
+            <div class="contact-cta-group">
+                <a href="https://wa.me/917305585095" target="_blank" class="btn-whatsapp-sponsor">Chat with us on WhatsApp</a>
+                <div class="contact-card">
+                    Call/ WhatsApp us - we'll guide you: <span class="phone-number">73055 85095</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -551,13 +601,13 @@
             <p class="intro-text">Real stories. Real needs. Real impact.</p>
             <div class="student-stories">
                 <div class="student-card">
-                    <h3><span class="icon">📖</span> Ravi</h3>
-                    <p>Lost both parents. Raised by an NGO. Now pursuing B.Sc (AI) at <span class="highlight-text">Himayam College</span> thanks to kind sponsors, building a brighter future.</p>
+                    <h3><span class="icon">📖</span> Ravi <span style="font-size: 0.7em; font-weight: normal;">(Admission Secured – Thanks to a Sponsor)</span></h3>
+                    <p>Lost both parents at a young age. Raised by a compassionate NGO, Ravi never imagined college could be within reach. Now, he’s been offered admission to B.Sc Artificial Intelligence at <span class="highlight-text">Himayam College</span>, thanks to a generous sponsor. With this support, Ravi is one step closer to building the future he once thought was impossible.</p>
                     <p class="note"><em>(Name changed to protect identity. Real info will be shared privately upon request.)</em></p>
                 </div>
                 <div class="student-card">
-                    <h3><span class="icon">📖</span> Anitha <span style="color: #d9534f; font-size: 0.8em; font-weight: normal;">(Looking for Sponsor)</span></h3>
-                    <p>Works tirelessly at a jewellery store to survive, but dreams of a B.Com degree. Welcomed to <span class="highlight-text">Himayam College</span>, but still waiting for a sponsor to fulfill her academic aspirations.</p>
+                    <h3><span class="icon">📖</span> Anitha <span class="badge-waiting">Waiting for a Sponsor</span></h3>
+                    <p>Anitha spends long hours at a small jewellery store to help support her family. But her heart beats for education — she dreams of earning a B.Com degree and building a life beyond survival. She’s been welcomed with admission at <span class="highlight-text">Himayam College</span>, but still awaits a sponsor to turn that opportunity into reality.</p>
                     <p class="note"><em>(Name changed to protect identity. Real info will be shared privately upon request.)</em></p>
                 </div>
             </div>
@@ -620,9 +670,10 @@
 
                 // Process data into objects for easier sorting and rendering
                 const students = dataRows.map(rowData => {
-                    const studentName = rowData[0];
-                    const course = rowData[1];
-                    const sponsoredBy = rowData[2];
+                    // Ensure rowData has at least 3 elements before accessing
+                    const studentName = rowData[0] || '';
+                    const course = rowData[1] || '';
+                    const sponsoredBy = rowData[2] || '';
                     // Check if 'Sponsored by' contains an asterisk for highlighting and sorting
                     const needsSponsor = sponsoredBy.includes('*');
 
@@ -640,7 +691,7 @@
                 students.forEach(student => {
                     const row = document.createElement('tr');
                     // Add 'needs-sponsor-row' class to the entire row if it needs sponsorship
-                    if (student.needsSponsor) { // Only add class if needsSponsor is true
+                    if (student.needsSponsor) {
                         row.classList.add('needs-sponsor-row');
                     }
 
