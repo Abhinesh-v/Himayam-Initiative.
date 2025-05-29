@@ -28,6 +28,8 @@
             --section-enhanced-bg: #e8f0fe; /* Light blue background for enhanced section */
             --secured-badge-bg: #28a745; /* Green for secured admission */
             --deserving-students-highlight: #f1c041; /* Highlight color for deserving students */
+            --hero-statement-bg: #f1c041; /* Background for the "No student..." statement */
+            --hero-statement-text: #012949; /* Text color for the "No student..." statement */
         }
 
         /* Base Body Styles */
@@ -119,6 +121,32 @@
             line-height: 1.1; /* Default line height for larger screens */
             color: var(--text-light);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+        }
+
+        .hero-section h1 .main-statement {
+            display: block; /* Ensures it takes its own line */
+            margin-bottom: 15px; /* Space between the two parts of the heading */
+        }
+
+        .hero-section h1 .sub-statement {
+            display: flex; /* Use flex for icon and text alignment */
+            align-items: center;
+            justify-content: center; /* Center horizontally */
+            color: var(--himayam-yellow); /* Changed text color to yellow */
+            font-size: 0.7em; /* Adjusted for web to fit 2 lines */
+            font-weight: bold;
+            line-height: 1.4; /* Adjusted line height for better readability */
+            max-width: 600px; /* Limit width for better readability */
+            margin: 0 auto; /* Center the block */
+            text-align: center; /* Ensure text is centered within its container */
+        }
+
+        .hero-section h1 .sub-statement svg {
+            width: 28px; /* Size of the arrow icon */
+            height: 28px;
+            fill: var(--himayam-yellow); /* Color of the arrow */
+            margin-right: 15px; /* Space between arrow and text */
+            flex-shrink: 0; /* Prevent icon from shrinking */
         }
 
         .hero-section p {
@@ -499,6 +527,15 @@
                 font-size: 2.8em;
                 line-height: 1.25; /* Adjusted line height for better wrapping */
             }
+            .hero-section h1 .sub-statement {
+                font-size: 0.65em; /* Adjusted for tablets to fit 2-3 lines */
+                line-height: 1.4; /* Adjusted line height for better readability */
+            }
+            .hero-section h1 .sub-statement svg {
+                width: 24px;
+                height: 24px;
+                margin-right: 10px;
+            }
             .hero-section p {
                 font-size: 1.2em;
             }
@@ -553,6 +590,15 @@
                 font-size: 2.2em;
                 /* Adjusted line height for better mobile display of headline */
                 line-height: 1.35; /* Fine-tuned line height for better wrapping */
+            }
+            .hero-section h1 .sub-statement {
+                font-size: 0.6em; /* Adjusted for mobile to fit 3 lines */
+                line-height: 1.4; /* Adjusted line height for better readability */
+            }
+            .hero-section h1 .sub-statement svg {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
             }
             .hero-section p {
                 font-size: 1em;
@@ -619,6 +665,15 @@
                 font-size: 1.8em;
                 line-height: 1.45; /* Fine-tuned line height for very small screens */
             }
+            .hero-section h1 .sub-statement {
+                font-size: 0.55em; /* Adjusted for very small mobile to fit 3 lines */
+                line-height: 1.4; /* Adjusted line height for better readability */
+            }
+            .hero-section h1 .sub-statement svg {
+                width: 18px;
+                height: 18px;
+                margin-right: 8px;
+            }
             .hero-section p {
                 font-size: 0.9em;
             }
@@ -654,7 +709,15 @@
 
     <section class="hero-section">
         <div class="hero-content">
-            <h1>At <span class="highlight-text">Himayam College</span>, we believe<br>No student should be denied<br>education because of money.</h1>
+            <h1>
+                <span class="main-statement">At <span class="highlight-text">Himayam College</span>, we believe</span>
+                <span class="sub-statement">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                    </svg>
+                    No student should be denied education because of money.
+                </span>
+            </h1>
             <p>That's not just a dream — it's our mission. This year, we've promised support to over <span class="highlight-deserving-students">60 deserving students</span>, helping them build brighter futures.</p>
             <p>You can be a vital part of this mission by sponsoring a student. You'll get monthly updates on their transformation, celebrating with us when they secure a job after three years.</p>
         </div>
