@@ -3,348 +3,665 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Life-Changing Initiative: Your Network Can Help</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>Himayam College Scholarships - Empowering Futures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom styles for the Inter font and smooth scrolling */
+        /* Define CSS Variables for Brand Colors and Common Styles */
+        :root {
+            --himayam-blue: #032F5C; /* Deep blue - keeping for general text */
+            --himayam-yellow: #F6CC35; /* Golden yellow */
+            --highlight-red: #93261f; /* New highlight color for Himayam College */
+            --text-dark: #333;
+            --text-light: #f0f0f0;
+            --bg-light: #f9f9f9;
+            --border-color: #ddd;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+            --shadow-heavy: rgba(0, 0, 0, 0.2);
+            --price-card-color: #ac3c22; /* New color for price cards */
+            --whatsapp-green: #128C7E; /* A different shade of green for WhatsApp */
+            --whatsapp-green-hover: #075E54; /* Darker shade for hover */
+            --needs-sponsor-bg: #ffe0e0; /* Light red background for rows needing sponsor */
+            --needs-sponsor-text: #d9534f; /* Red text for 'Waiting for Sponsor' */
+        }
+
+        /* Base Body Styles */
         body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff; /* Default background */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        /* Notification styling for clipboard copy */
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #059669; /* Forest green - Accent color for success/feedback */
+
+        /* Global Header for Logo */
+        .global-header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #fff; /* White background for the header */
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .global-header img {
+            max-width: 250px; /* Adjust size as needed */
+            height: auto;
+        }
+
+        /* Headings Typography */
+        h1, h2, h3 {
+            font-family: 'Manrope', sans-serif;
+            color: var(--himayam-blue); /* Default heading color */
+            margin-bottom: 0.5em;
+            line-height: 1.2;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section Padding */
+        section {
+            padding: 80px 20px;
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            background-color: var(--himayam-blue); /* Solid blue background */
+            color: var(--text-light);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 20px;
+        }
+
+        /* Background image for hero section */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets_task_01jwaph6w3fewv8xqr5ndd8fpj_1748410938_img_0.webp'); /* College building image */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2; /* Soft opacity for background */
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1; /* Ensure content is above the background image */
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Remove the hero-logo from hero section as it's now in global header */
+        .hero-logo {
+            display: none; /* Hide the old logo in hero section */
+        }
+
+        .hero-section h1 {
+            font-size: 3.2em; /* Adjusted headline size */
+            margin-bottom: 0.4em;
+            line-height: 1.1;
+            color: var(--text-light);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+        }
+
+        .hero-section p {
+            font-size: 1.4em; /* Adjusted subheading size */
+            margin-bottom: 2.5em;
+            color: var(--text-light);
+            opacity: 0.9;
+        }
+
+        /* Our Mission Section */
+        .mission-section {
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+
+        .mission-section h2 {
+            font-size: 2.8em;
+            margin-bottom: 0.8em;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mission-section p {
+            font-size: 1.3em;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Highlight text with new color */
+        .highlight-text {
+            color: var(--highlight-red);
+            font-weight: bold;
+        }
+
+        /* Sponsorship Options Section */
+        .sponsorship-options-section {
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .sponsorship-options-section h2 {
+            font-size: 2.8em;
+            margin-bottom: 1.5em;
+        }
+
+        .sponsorship-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .sponsorship-card {
+            border-radius: 20px;
+            padding: 35px;
+            width: 300px; /* Fixed width for cards */
+            box-shadow: 0 8px 20px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white; /* Default text color for cards */
+            background-color: var(--price-card-color); /* Apply new single color */
+        }
+
+        .sponsorship-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 25px var(--shadow-medium);
+        }
+
+        .sponsorship-card h3 {
+            font-size: 2.2em;
+            color: white; /* Ensure heading is white */
+            margin-bottom: 10px;
+        }
+
+        .sponsorship-card p {
+            font-size: 1.2em;
+            color: white; /* Ensure paragraph is white */
+            margin-bottom: 0;
+        }
+
+        .sponsorship-footer-text {
+            font-size: 1.3em; /* Slightly bigger font size */
+            font-weight: bold; /* Bold text */
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 30px auto; /* Added bottom margin */
+        }
+
+        /* WhatsApp Button within Sponsorship Section */
+        .btn-whatsapp-sponsor {
+            display: inline-block;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            background-color: var(--whatsapp-green); /* New WhatsApp green */
             color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 2px solid var(--whatsapp-green);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px; /* Spacing from text above */
         }
-        .notification.show {
-            opacity: 1;
+
+        .btn-whatsapp-sponsor:hover {
+            background-color: var(--whatsapp-green-hover);
+            border-color: var(--whatsapp-green-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Contact details text */
+        .contact-details {
+            font-size: 1.2em;
+            color: #555;
+            margin-top: 20px; /* Space from button */
+            font-weight: bold;
+        }
+
+        .contact-details .phone-number {
+            color: var(--highlight-red); /* Highlight phone number */
+        }
+
+        /* Meet the Students Section */
+        .students-section {
+            background-color: #fff; /* Changed background for contrast */
+        }
+
+        .students-section h2 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 1em;
+        }
+
+        .students-section .intro-text {
+            text-align: center;
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            color: #555;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .student-stories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* Adjusted min-width for cards */
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .student-card {
+            background-color: var(--bg-light); /* Light background for student cards */
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 25px var(--shadow-medium); /* Stronger shadow for emphasis */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .student-card h3 {
+            font-size: 2em;
+            color: var(--himayam-blue);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .student-card .icon {
+            font-size: 1.8em;
+            color: var(--himayam-yellow);
+        }
+
+        .student-card p {
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            flex-grow: 1; /* Allow paragraph to take available space */
+        }
+
+        .student-card .note {
+            font-size: 0.95em;
+            color: #777;
+            font-style: italic;
+            margin-top: auto; /* Push note to the bottom */
+        }
+
+        /* Sponsorship Tracker Section */
+        .tracker-section {
+            background-color: var(--bg-light); /* Changed background for contrast */
+        }
+
+        .tracker-section h2 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 1.8em;
+        }
+
+        .tracker-table-container {
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+        }
+
+        .tracker-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 750px; /* Increased min-width for better display of 60 students */
+        }
+
+        .tracker-table th, .tracker-table td {
+            padding: 18px 25px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tracker-table th {
+            background-color: var(--himayam-blue);
+            color: var(--text-light);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1em;
+            letter-spacing: 0.05em;
+        }
+
+        .tracker-table td {
+            background-color: #fff;
+            font-size: 1.1em;
+        }
+
+        .tracker-table tr:nth-child(even) td {
+            background-color: #f5f5f5;
+        }
+
+        /* Highlight entire row if it needs sponsor */
+        .tracker-table tr.needs-sponsor-row {
+            background-color: var(--needs-sponsor-bg); /* Light red background */
+        }
+
+        /* Text color for the 'Sponsored by' cell in highlighted rows */
+        .tracker-table tr.needs-sponsor-row td.needs-sponsor-cell-text {
+            font-weight: bold;
+            color: var(--needs-sponsor-text); /* Red text */
+        }
+
+        .table-disclaimer {
+            font-size: 0.95em;
+            color: #777;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .loading-message {
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2em;
+            color: #777;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-section h1 {
+                font-size: 2.8em;
+            }
+            .hero-section p {
+                font-size: 1.2em;
+            }
+            .mission-section h2, .sponsorship-options-section h2, .students-section h2, .tracker-section h2 {
+                font-size: 2.4em;
+            }
+            .sponsorship-card {
+                width: 280px;
+                padding: 30px;
+            }
+            .sponsorship-card h3 {
+                font-size: 2em;
+            }
+            .sponsorship-card p {
+                font-size: 1.1em;
+            }
+            .sponsorship-footer-text {
+                font-size: 1.1em;
+            }
+            .student-card {
+                padding: 30px;
+            }
+            .student-card h3 {
+                font-size: 1.7em;
+            }
+            .student-card p {
+                font-size: 1.1em;
+            }
+            .btn-whatsapp-sponsor {
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
+            .contact-details {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 15px;
+            }
+            .hero-section {
+                padding: 80px 15px;
+            }
+            .global-header img {
+                max-width: 200px;
+            }
+            .hero-section h1 {
+                font-size: 2.2em;
+            }
+            .hero-section p {
+                font-size: 1em;
+            }
+            .mission-section h2, .sponsorship-options-section h2, .students-section h2, .tracker-section h2 {
+                font-size: 2em;
+            }
+            .mission-section p, .sponsorship-footer-text {
+                font-size: 1em;
+            }
+            .sponsorship-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .sponsorship-card {
+                width: 90%;
+                max-width: 350px;
+            }
+            .tracker-table {
+                min-width: 100%;
+            }
+            .tracker-table th, .tracker-table td {
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+            .btn-whatsapp-sponsor {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            .contact-details {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .global-header img {
+                max-width: 150px;
+            }
+            .hero-section h1 {
+                font-size: 1.8em;
+            }
+            .hero-logo {
+                max-width: 120px;
+            }
+            .hero-section p {
+                font-size: 0.9em;
+            }
+            .mission-section h2, .sponsorship-options-section h2, .students-section h2, .tracker-section h2 {
+                font-size: 1.6em;
+            }
+            .sponsorship-card h3 {
+                font-size: 1.8em;
+            }
+            .sponsorship-card p {
+                font-size: 1em;
+            }
+            .student-card h3 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-
-    <header class="bg-gradient-to-br from-blue-800 to-blue-900 text-white py-16 md:py-24 px-4 sm:px-6 lg:px-8 rounded-b-3xl shadow-xl">
-        <div class="max-w-6xl mx-auto text-center">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-                One Student. One Chance. Your Network Can Change Everything.
-            </h1>
-            <p class="text-xl sm:text-2xl font-light mb-10 max-w-3xl mx-auto">
-                Transform a brilliant 12th-pass student's life through education—even if you can't sponsor them yourself.
-            </p>
-
-            <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
-                <div class="w-full md:w-1/2 bg-white rounded-xl shadow-lg overflow-hidden">
-                    <img src="https://i.postimg.cc/25Y6xD2g/assets-task-01jw84n3daft6vyzhbzs35c5nt-1748325117-img-0.webp" alt="Worried student looking at college fees" class="w-full h-auto object-cover rounded-xl">
-                </div>
-                <div class="w-full md:w-1/2 bg-white rounded-xl shadow-lg overflow-hidden">
-                    <img src="https://i.postimg.cc/sxjHPvh1/20250527-1123-Confident-College-Student-simple-compose-01jw84sjekfsn8dng5a14hme9d.png" alt="Student confidently graduating" class="w-full h-auto object-cover rounded-xl">
-                </div>
-            </div>
-
-            <a href="#three-ways-to-impact" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-full text-xl sm:text-2xl transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-                See How You Can Help
-            </a>
-        </div>
+<body>
+    <header class="global-header">
+        <img src="Himayam college logo with text.jpg" alt="Himayam College Logo">
     </header>
 
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>At <span class="highlight-text">Himayam College</span>, we believe<br>No student should be denied education<br>because of money.</h1>
+            <p>That's not just a dream — it's our mission. This year, we've promised support to over 60 deserving students, helping them build brighter futures.</p>
+            <p>You can be a vital part of this mission by sponsoring a student. You'll get monthly updates on their transformation, celebrating with us when they secure a job after three years.</p>
+        </div>
+    </section>
 
-        <section class="mb-24 bg-white p-8 md:p-12 rounded-3xl shadow-lg">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold text-blue-800 mb-8">
-                    Why I Started This Initiative Instead of Just Complaining
-                </h2>
-                <div class="relative w-full h-48 sm:h-64 md:h-96 bg-gray-200 rounded-xl overflow-hidden mb-8 shadow-md flex items-center justify-center">
-                    <img src="https://placehold.co/800x450/E0F2F7/000?text=Arun+Thulasidharan+Video" alt="Arun Thulasidharan, Founder" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 rounded-xl">
-                        <svg class="w-16 h-16 text-white opacity-90" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
-                        </svg>
-                    </div>
+    <section class="mission-section">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>We believe access to education can transform lives. That’s why <span class="highlight-text">Himayam College</span>, located in Thiruporur, is committed to supporting underprivileged students through partial to full scholarships — based on financial need. This isn't charity. This is empowerment. Backed by <span class="highlight-text">Satvaj Educational Trust</span>.</p>
+            <p class="courses-supported-text" style="margin-top: 20px;">Courses Supported: BBA | BCA | B.Com | B.Sc (Data Science) | B.Sc (Artificial Intelligence).</p>
+        </div>
+    </section>
+
+    <section class="sponsorship-options-section">
+        <div class="container">
+            <h2>Sponsor a student monthly — in 3 simple ways:</h2>
+            <div class="sponsorship-cards">
+                <div class="sponsorship-card">
+                    <h3>₹1,500/month</h3>
+                    <p>Covers 25% of tuition</p>
                 </div>
-                <blockquote class="text-xl sm:text-2xl italic text-gray-700 leading-relaxed mb-8">
-                    "Every year, I watched brilliant students give up on college because of money. So I stopped complaining about the system and built this initiative to fix it."
-                    <footer class="mt-4 text-lg font-semibold text-blue-700">— Arun Thulasidharan, Founder, Satvaj Educational Trust</footer>
-                </blockquote>
-                <button class="border border-orange-500 text-orange-500 hover:bg-orange-50 hover:text-orange-600 font-bold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-md">
-                    Watch Arun's Story
-                </button>
-            </div>
-        </section>
-
-        <section class="mb-24 bg-gray-100 p-8 md:p-12 rounded-3xl shadow-lg">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold text-blue-800 mb-8">
-                    The Hidden Crisis in Indian Education
-                </h2>
-                <div class="w-full bg-blue-100 rounded-xl mb-10 shadow-inner flex items-center justify-center overflow-hidden">
-                    <img src="https://i.postimg.cc/K8tZsHWL/20250527-1125-Rural-Student-s-Journey-simple-compose-01jw84wxjbf6zv610ks7tjrsyj.png" alt="Animated Infographic showing rural student's journey" class="w-full h-auto object-cover">
+                <div class="sponsorship-card">
+                    <h3>₹3,000/month</h3>
+                    <p>Covers 50% of tuition</p>
                 </div>
-                <ul class="text-lg sm:text-xl text-gray-700 leading-relaxed space-y-4 mb-10 text-left md:text-center">
-                    <li class="flex items-start md:justify-center">
-                        <span class="text-orange-500 font-extrabold text-2xl mr-3">✓</span>
-                        <p><strong class="text-blue-800">67%</strong> of 12th pass students in rural Tamil Nadu cannot afford college</p>
-                    </li>
-                    <li class="flex items-start md:justify-center">
-                        <span class="text-orange-500 font-extrabold text-2xl mr-3">✓</span>
-                        <p><strong class="text-blue-800">₹2.5 lakhs</strong> average annual college cost vs. <strong class="text-blue-800">₹40,000</strong> average family income</p>
-                    </li>
-                    <li class="flex items-start md:justify-center">
-                        <span class="text-orange-500 font-extrabold text-2xl mr-3">✓</span>
-                        <p><strong class="text-blue-800">89%</strong> of these students end up in unstable, low-paying jobs</p>
-                    </li>
-                    <li class="flex items-start md:justify-center">
-                        <span class="text-orange-500 font-extrabold text-2xl mr-3">✓</span>
-                        <p><strong class="text-blue-800">Result:</strong> India loses millions of potential professionals every year</p>
-                    </li>
-                </ul>
-                <p class="text-xl sm:text-2xl italic text-orange-600 font-semibold">
-                    "Behind every statistic is a student who had to choose between family survival and personal dreams."
-                </p>
-            </div>
-        </section>
-
-        <section class="mb-24 bg-white p-8 md:p-12 rounded-3xl shadow-lg">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl sm:text-4xl font-bold text-blue-800 text-center mb-10">
-                    Exploring Our Educational Programs
-                </h2>
-                <p class="text-lg text-gray-700 text-center mb-8">
-                    We offer structured educational programs designed to empower students with the skills and knowledge needed for successful careers. Below are the key aspects of our approach and the courses available.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div>
-                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">Key Aspects of Our Programs:</h3>
-                        <ul class="list-disc list-inside text-lg text-gray-700 space-y-3">
-                            <li>Practical degrees designed for real jobs (not just theory)</li>
-                            <li>10% to 100% scholarships, including free education, depending on financial need. Reach out for more info.</li>
-                            <li>Industry partnerships for internships and placements</li>
-                            <li>Life skills training (communication, confidence, leadership)</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">Available Courses:</h3>
-                        <ul class="list-disc list-inside text-lg text-gray-700 space-y-3">
-                            <li>BBA (Business Management)</li>
-                            <li>B.Com (Commerce & Finance)</li>
-                            <li>BCA (Computer Applications)</li>
-                            <li>B.Sc Data Science</li>
-                            <li>B.Sc Artificial Intelligence</li>
-                        </ul>
-                    </div>
+                <div class="sponsorship-card">
+                    <h3>₹6,000/month</h3>
+                    <p>Covers 100% for 1 student</p>
                 </div>
             </div>
-        </section>
+            <p class="sponsorship-footer-text">Want to support more than 1 student, give a one-time amount, or offer partial help?</p>
+            <a href="https://wa.me/917305585095" target="_blank" class="btn-whatsapp-sponsor">Chat with us on WhatsApp</a>
+            <p class="contact-details">Call/ WhatsApp us - we'll guide you: <span class="phone-number">73055 85095</span></p>
+        </div>
+    </section>
 
-        <section id="three-ways-to-impact" class="mb-24 bg-blue-800 text-white p-8 md:p-12 rounded-3xl shadow-lg">
-            <div class="max-w-5xl mx-auto text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-12">
-                    You Don't Need to Be Rich to Change a Life
-                </h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-blue-700 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
-                        <span class="text-5xl mb-4">👥</span>
-                        <h3 class="text-2xl font-semibold mb-4">REFER A DESERVING STUDENT</h3>
-                        <p class="text-sm mb-4">
-                            Who qualifies: Completed 12th standard with decent
-                            grades, from a financially struggling family, interested in our offered courses.
-                        </p>
-                        <p class="text-sm mb-6">
-                            Your role: Simply connect them with us through WhatsApp.
-                            Our commitment: We handle everything else—evaluation, scholarship matching, admission support.
-                        </p>
-                        <a href="https://wa.me/917305585095?text=Hi%20Arun,%20I%20want%20to%20refer%20a%20student%20for%20the%20educational%20initiative." target="_blank" class="mt-auto bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-                            Refer a Student
-                        </a>
-                    </div>
-
-                    <div class="bg-blue-700 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
-                        <span class="text-5xl mb-4">💝</span>
-                        <h3 class="text-2xl font-semibold mb-4">SPONSOR A STUDENT'S FUTURE</h3>
-                        <p class="text-sm mb-4">
-                            Flexible sponsorship options - partial or full support based on what you can contribute.
-                        </p>
-                        <p class="text-sm mb-6">
-                            What you get: Monthly progress updates with photos, direct communication with your sponsored student, annual progress report and grade updates, invitation to graduation ceremony.
-                        </p>
-                        <a href="https://wa.me/917305585095?text=Hi%20Arun,%20I%20am%20interested%20in%20sponsoring%20a%20student%20for%20your%20educational%20initiative." target="_blank" class="mt-auto bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-                            Become a Sponsor
-                        </a>
-                    </div>
-
-                    <div class="bg-blue-700 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
-                        <span class="text-5xl mb-4">📢</span>
-                        <h3 class="text-2xl font-semibold mb-4">AMPLIFY THE MESSAGE</h3>
-                        <p class="text-sm mb-4">
-                            Share with your friends and network: WhatsApp friends who might know students, close friends and family members, anyone in your personal network.
-                        </p>
-                        <p class="text-sm mb-6">
-                            One-click sharing: When you click "Share This Mission," the message automatically copies to your clipboard with the link included. You'll get a notification confirming it's ready to paste and send.
-                        </p>
-                        <button id="shareMissionBtn" class="mt-auto border border-orange-400 text-orange-100 hover:bg-orange-900 hover:text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-                            Share This Mission
-                        </button>
-                    </div>
+    <section class="students-section">
+        <div class="container">
+            <h2>Meet the Students</h2>
+            <p class="intro-text">Real stories. Real needs. Real impact.</p>
+            <div class="student-stories">
+                <div class="student-card">
+                    <h3><span class="icon">📖</span> Ravi</h3>
+                    <p>Lost both parents. Raised by an NGO. Now pursuing B.Sc (AI) at <span class="highlight-text">Himayam College</span> thanks to kind sponsors, building a brighter future.</p>
+                    <p class="note"><em>(Name changed to protect identity. Real info will be shared privately upon request.)</em></p>
+                </div>
+                <div class="student-card">
+                    <h3><span class="icon">📖</span> Anitha <span style="color: #d9534f; font-size: 0.8em; font-weight: normal;">(Looking for Sponsor)</span></h3>
+                    <p>Works tirelessly at a jewellery store to survive, but dreams of a B.Com degree. Welcomed to <span class="highlight-text">Himayam College</span>, but still waiting for a sponsor to fulfill her academic aspirations.</p>
+                    <p class="note"><em>(Name changed to protect identity. Real info will be shared privately upon request.)</em></p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="mb-24 bg-gray-100 p-8 md:p-12 rounded-3xl shadow-lg text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold text-blue-800 mb-8">
-                Admissions Closing Soon
-            </h2>
-            <ul class="text-lg sm:text-xl text-gray-700 leading-relaxed space-y-3 mb-10 max-w-2xl mx-auto">
-                <li><strong class="text-orange-600">Limited scholarship seats available</strong></li>
-                <li>Timing is important for this academic year</li>
-                <li>Don't let deserving students miss this opportunity</li>
-            </ul>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://wa.me/917305585095?text=Hi%20Arun,%20I%20want%20to%20refer%20a%20student%20for%20the%20educational%20initiative." target="_blank" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-                    Refer Now
-                </a>
-                <a href="https://wa.me/917305585095?text=Hi%20Arun,%20I%20am%20interested%20in%20sponsoring%20a%20student%20for%20your%20educational%20initiative." target="_blank" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-                    Sponsor Today
-                </a>
-                <button id="shareImmediatelyBtn" class="border border-orange-500 text-orange-500 hover:bg-orange-50 hover:text-orange-600 font-bold py-3 px-8 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-                    Share Immediately
-                </button>
+    <section class="tracker-section">
+        <div class="container">
+            <h2>Together, we're already supporting 60+ students.</h2>
+            <div class="tracker-table-container">
+                <table class="tracker-table">
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Course</th>
+                            <th>Sponsored by</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody">
+                        <tr><td colspan="3" class="loading-message">Loading student data...</td></tr>
+                    </tbody>
+                </table>
             </div>
-        </section>
-
-        <section class="mb-24 bg-white p-8 md:p-12 rounded-3xl shadow-lg">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl sm:text-4xl font-bold text-blue-800 text-center mb-10">
-                    Built on Trust, Driven by Results
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <div>
-                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">Our Credentials:</h3>
-                        <ul class="list-disc list-inside text-lg text-gray-700 space-y-3">
-                            <li><strong class="text-blue-800">Satvaj Educational Trust</strong> - Government registered educational trust</li>
-                            <li><strong class="text-blue-800">Established Since 1999</strong> - Successfully running educational initiatives for over two decades</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">Contact Information:</h3>
-                        <address class="not-italic text-lg text-gray-700 space-y-2">
-                            <p>📍 No-1352/A, Sembakkam Road, Eachamballam, Manampathy, Chengalpattu Taluk, Chennai – 603105</p>
-                            <p>📞 Call/WhatsApp: <a href="tel:+917305585095" class="text-blue-600 hover:underline">73055 85095</a></p>
-                        </address>
-                    </div>
-                </div>
-                </div>
-        </section>
-
-        <section class="mb-16 bg-blue-900 text-white p-8 md:p-12 rounded-3xl shadow-xl text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-10">
-                Every Student Matters. Every Network Counts. Every Share Helps.
-            </h2>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://wa.me/917305585095?text=Hi%20Arun,%20I%20know%20a%20student%20who%20might%20benefit%20from%20your%20educational%20initiative." target="_blank" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-6 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-                    I Know a Student
-                </a>
-                <a href="https://wa.me/917305585095?text=Hi%20Arun,%20I%20want%20to%20learn%20more%20about%20sponsoring%20a%20student%20for%20your%20educational%20initiative." target="_blank" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-6 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-                    I Want to Sponsor
-                </a>
-                <button id="finalShareBtn" class="flex-1 border border-orange-400 text-orange-100 hover:bg-orange-900 hover:text-white font-bold py-4 px-6 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-                    I'll Share This
-                </button>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="bg-gray-800 text-gray-300 py-8 px-4 sm:px-6 lg:px-8 text-center rounded-t-3xl">
-        <p class="text-lg">"Started by one person's frustration with inequality. Powered by a community that cares."</p>
-    </footer>
-
-    <div id="notification" class="notification"></div>
+            <p class="table-disclaimer">Student names are not real; their identity is protected online. You can reach us out to get the details of a particular student.</p>
+        </div>
+    </section>
 
     <script>
-        // JavaScript for "Share This Mission" functionality and smooth scrolling
-        document.addEventListener('DOMContentLoaded', () => {
-            // Updated share message as per user's request
-            const shareMessage = `My friend Arun is quietly helping students who can’t afford college.
+        async function fetchAndPopulateStudents() {
+            const googleSheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRF4Zh6X9l6bSFjQGZoHjZSVK6qSALV2vxwf0EaJiSZBeV_LvYz28WMuv_Xr462N726TfxBn65n-g6D/pub?gid=0&single=true&output=csv';
+            const tableBody = document.getElementById('studentTableBody');
 
-If you know someone who might benefit or support this, please reach out to him.
-
-You can watch his video and understand the whole initiative here:
-https://himayam.in/scholarship`;
-
-            // Function to show notification
-            function showNotification(message) {
-                const notification = document.getElementById('notification');
-                notification.textContent = message;
-                notification.classList.add('show');
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 3000); // Hide after 3 seconds
-            }
-
-            // Function to copy text to clipboard (using execCommand for broader compatibility in iframes)
-            function copyToClipboard(text) {
-                const textarea = document.createElement('textarea');
-                textarea.value = text;
-                document.body.appendChild(textarea);
-                textarea.select();
-                try {
-                    document.execCommand('copy');
-                    showNotification('Message copied! Ready to share.');
-                } catch (err) {
-                    console.error('Failed to copy text: ', err);
-                    showNotification('Failed to copy message. Please copy manually.');
+            try {
+                const response = await fetch(googleSheetUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}. Please ensure the Google Sheet is published to the web (File > Share > Publish to web) and accessible.`);
                 }
-                document.body.removeChild(textarea);
-            }
+                const csvText = await response.text();
+                const rows = csvText.trim().split('\n').map(row => row.split(',').map(cell => cell.trim().replace(/^"|"$/g, '')));
 
-            // Event listener for "Share This Mission" button (Section 4)
-            const shareMissionBtn = document.getElementById('shareMissionBtn');
-            if (shareMissionBtn) {
-                shareMissionBtn.addEventListener('click', () => {
-                    copyToClipboard(shareMessage);
-                });
-            }
+                tableBody.innerHTML = ''; // Clear loading message
 
-            // Event listener for "Share Immediately" button (Section 5)
-            const shareImmediatelyBtn = document.getElementById('shareImmediatelyBtn');
-            if (shareImmediatelyBtn) {
-                shareImmediatelyBtn.addEventListener('click', () => {
-                    copyToClipboard(shareMessage);
-                });
-            }
+                // Filter out empty rows and process valid data rows
+                let dataRows = rows.filter(row => row.length >= 3 && row.some(cell => cell !== ''));
 
-            // Event listener for "I'll Share This" button (Section 7)
-            const finalShareBtn = document.getElementById('finalShareBtn');
-            if (finalShareBtn) {
-                finalShareBtn.addEventListener('click', () => {
-                    copyToClipboard(shareMessage);
-                });
-            }
+                // Check and remove header rows if present
+                if (dataRows.length > 0 && dataRows[0][0] === 'Student Name' && dataRows[0][1] === 'Course' && dataRows[0][2] === 'Sponsor Name') {
+                    dataRows = dataRows.slice(1);
+                }
+                // Check for a second header row if the first one was skipped
+                if (dataRows.length > 0 && dataRows[0][0] === 'Student Name' && dataRows[0][1] === 'Course' && dataRows[0][2] === 'Sponsor Name') {
+                    dataRows = dataRows.slice(1);
+                }
 
-            // Smooth scroll for "See How You Can Help" button
-            const heroCta = document.querySelector('header a');
-            if (heroCta) {
-                heroCta.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    document.querySelector(targetId).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+
+                if (dataRows.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="3" class="loading-message">No student data available.</td></tr>';
+                    return;
+                }
+
+                // Process data into objects for easier sorting and rendering
+                const students = dataRows.map(rowData => {
+                    const studentName = rowData[0];
+                    const course = rowData[1];
+                    const sponsoredBy = rowData[2];
+                    // Check if 'Sponsored by' contains an asterisk for highlighting and sorting
+                    const needsSponsor = sponsoredBy.includes('*');
+
+                    return { studentName, course, sponsoredBy, needsSponsor };
                 });
+
+                // Sort students: those needing sponsor (with '*') first
+                students.sort((a, b) => {
+                    if (a.needsSponsor && !b.needsSponsor) return -1; // a comes before b
+                    if (!a.needsSponsor && b.needsSponsor) return 1;  // b comes before a
+                    return 0; // maintain original relative order if both are same
+                });
+
+                // Populate the table with sorted data
+                students.forEach(student => {
+                    const row = document.createElement('tr');
+                    // Add 'needs-sponsor-row' class to the entire row if it needs sponsorship
+                    if (student.needsSponsor) { // Only add class if needsSponsor is true
+                        row.classList.add('needs-sponsor-row');
+                    }
+
+                    // Remove the asterisk from the displayed 'Sponsored by' text
+                    const displaySponsoredBy = student.sponsoredBy.replace('*', '');
+
+                    row.innerHTML = `
+                        <td>${student.studentName}</td>
+                        <td>${student.course}</td>
+                        <td class="${student.needsSponsor ? 'needs-sponsor-cell-text' : ''}">${displaySponsoredBy}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+
+            } catch (error) {
+                console.error('Error fetching student data:', error);
+                tableBody.innerHTML = `<tr><td colspan="3" class="loading-message" style="color: var(--needs-sponsor-text);">Failed to load student data: ${error.message}</td></tr>`;
             }
-        });
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchAndPopulateStudents);
     </script>
 </body>
 </html>
