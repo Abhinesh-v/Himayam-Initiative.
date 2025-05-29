@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Himayam College Scholarships - Empowering Futures</title>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" referrerpolicy="no-referrer" />
     <style>
         /* Define CSS Variables for Brand Colors and Common Styles */
         :root {
@@ -91,7 +92,7 @@
             padding: 100px 20px;
         }
 
-        /* Background image for hero section */
+        /* Background image for hero section with blue tint */
         .hero-section::before {
             content: '';
             position: absolute;
@@ -99,10 +100,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('assets_task_01jwaph6w3fewv8xqr5ndd8fpj_1748410938_img_0.webp');
+            background-image: url('https://i.postimg.cc/QM0FWZDt/20250529-1806-Modern-College-Building-remix-01jwe0mcecedfv6n05egns2pqy.png'); /* New image URL */
             background-size: cover;
             background-position: center;
-            opacity: 0.2;
+            background-color: var(--himayam-blue); /* Blue tint */
+            background-blend-mode: multiply; /* Blend mode for tint */
+            opacity: 0.4; /* Changed opacity to 40% */
             z-index: 0;
         }
 
@@ -444,7 +447,32 @@
         .tracker-section h2 {
             text-align: center;
             font-size: 2.8em;
-            margin-bottom: 1.8em;
+            margin-bottom: 1em; /* Reduced gap */
+        }
+
+        .tracker-section .intro-text {
+            text-align: left; /* Changed to left-align */
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            color: #555;
+            /* Removed max-width to allow it to extend to the full container width */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tracker-section .intro-text ul {
+            list-style: disc; /* Or 'circle', 'square' */
+            padding-left: 25px; /* Indent the list items */
+            margin: 0;
+        }
+
+        .tracker-section .intro-text li {
+            margin-bottom: 10px; /* Space between list items */
+        }
+
+        .highlight-tracker-text {
+            color: var(--highlight-red); /* Changed to match --highlight-red */
+            font-weight: bold;
         }
 
         .tracker-table-container {
@@ -509,6 +537,103 @@
             padding: 20px;
             font-size: 1.2em;
             color: #777;
+        }
+
+        /* Footer Styling */
+        .main-footer {
+            background-color: var(--himayam-blue);
+            color: var(--text-light);
+            padding: 60px 20px;
+            text-align: center;
+            font-size: 1em;
+            line-height: 1.8;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start; /* Align items to the top */
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px; /* Space between columns */
+        }
+
+        .footer-section {
+            flex: 1; /* Allow sections to grow */
+            min-width: 280px; /* Minimum width before wrapping */
+            margin-bottom: 20px; /* Space between sections on wrap */
+        }
+
+        .footer-section h4 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.6em;
+            color: var(--himayam-yellow);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--himayam-yellow);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .social-icon-link {
+            display: inline-block;
+            width: 40px; /* Size of the icon */
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icon-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .social-icon-link .fab, .social-icon-link .fas { /* Styling for Font Awesome icons */
+            font-size: 24px; /* Icon size */
+            color: var(--text-light); /* White fill for icons */
+        }
+
+        .map-container {
+            width: 100%;
+            padding-bottom: 75%; /* 4:3 Aspect Ratio (450 / 600 = 0.75) */
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px var(--shadow-medium);
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
         /* Responsive Design */
@@ -580,6 +705,9 @@
             }
             .btn-call-us .phone-number {
                 font-size: 1.4em;
+            }
+            .footer-section {
+                min-width: 250px;
             }
         }
 
@@ -660,6 +788,12 @@
             .badge-waiting, .badge-secured {
                 font-size: 0.6em;
                 padding: 2px 5px;
+            }
+            .footer-section {
+                min-width: 100%; /* Stack footer sections on smaller mobiles */
+            }
+            .map-container {
+                padding-bottom: 100%; /* Make map square on mobile */
             }
         }
 
@@ -800,6 +934,13 @@
     <section class="tracker-section">
         <div class="container">
             <h2>Together, we're already supporting 60+ students.</h2>
+            <div class="intro-text">
+                <ul>
+                    <li>Every student listed here has either been <span class="highlight-tracker-text">sponsored</span> already by <span class="highlight-tracker-text">Himayam College</span> or is waiting for <span class="highlight-tracker-text">someone like you</span> to step in.</li>
+                    <li>These young individuals have cleared their 12th grade and been admitted into future-ready courses at Himayam College — many of them overcoming serious challenges like the loss of parents, extreme poverty, or the need to self-fund by working daily jobs.</li>
+                    <li>Your support can help cover their tuition, materials, and mentorship — and give them the chance to build a stable, dignified future.</li>
+                </ul>
+            </div>
             <div class="tracker-table-container">
                 <table class="tracker-table">
                     <thead>
@@ -818,6 +959,43 @@
         </div>
     </section>
 
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section contact-info">
+                <h4>Contact Us</h4>
+                <p>📍 No-1352/A, Sembakkam Road, Eachamballam, Manampathy, Chengalpattu Taluk, Chennai – 603105</p>
+                <p>📞 <a href="tel:+917305585095">Call/WhatsApp: 73055 85095</a></p>
+                <p>✅ Backed by Satvaj Educational Trust</p>
+            </div>
+            <div class="footer-section social-media">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/himayamcollege" target="_blank" aria-label="Instagram" class="social-icon-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/himayamcollege" target="_blank" aria-label="Facebook" class="social-icon-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://x.com/himayamcollege" target="_blank" aria-label="X (Twitter)" class="social-icon-link">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@himayamcollege" target="_blank" aria-label="YouTube" class="social-icon-link">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section map-embed">
+                <h4>Find Us on Map</h4>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3892.6968847479334!2d80.11610157507128!3d12.667868687620253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52559c1c1af30d%3A0x64e3f183900afa15!2sHimayam%20College%20of%20Arts%20and%20Science!5e0!3m2!1sen!2sin!4v1748525946807!5m2!1sen!2sin"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
         async function fetchAndPopulateStudents() {
             const googleSheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRF4Zh6X9l6bSFjQGZoHjZSVK6qSALV2vxwf0EaJiSZBeV_LvYz28WMuv_Xr462N726TfxBn65n-g6D/pub?gid=0&single=true&output=csv';
@@ -829,23 +1007,22 @@
                     throw new Error(`HTTP error! status: ${response.status}. Please ensure the Google Sheet is published to the web (File > Share > Publish to web) and accessible.`);
                 }
                 const csvText = await response.text();
+                // Split CSV into rows and then cells, trimming whitespace and removing quotes
                 const rows = csvText.trim().split('\n').map(row => row.split(',').map(cell => cell.trim().replace(/^"|"$/g, '')));
 
                 tableBody.innerHTML = ''; // Clear loading message
 
-                // Filter out empty rows and process valid data rows
+                // Filter out empty rows
                 let dataRows = rows.filter(row => row.length >= 3 && row.some(cell => cell !== ''));
 
-                // Check and remove header rows if present
-                if (dataRows.length > 0 && dataRows[0][0] === 'Student Name' && dataRows[0][1] === 'Course' && dataRows[0][2] === 'Sponsor Name') {
-                    dataRows = dataRows.slice(1);
-                }
-                // Check for a second header row if the first one was skipped
-                if (dataRows.length > 0 && dataRows[0][0] === 'Student Name' && dataRows[0][1] === 'Course' && dataRows[0][2] === 'Sponsor Name') {
+                // Check if the first row is a header and remove it if present
+                // Using a more robust check for header row content
+                const expectedHeaders = ['student name', 'course', 'sponsor name'];
+                if (dataRows.length > 0 && expectedHeaders.every((header, index) => dataRows[0][index]?.toLowerCase() === header)) {
                     dataRows = dataRows.slice(1);
                 }
 
-
+                // If no data rows remain after filtering, display a message
                 if (dataRows.length === 0) {
                     tableBody.innerHTML = '<tr><td colspan="3" class="loading-message">No student data available.</td></tr>';
                     return;
@@ -853,21 +1030,20 @@
 
                 // Process data into objects for easier sorting and rendering
                 const students = dataRows.map(rowData => {
-                    // Ensure rowData has at least 3 elements before accessing
                     const studentName = rowData[0] || '';
                     const course = rowData[1] || '';
                     const sponsoredBy = rowData[2] || '';
-                    // Check if 'Sponsored by' contains an asterisk for highlighting and sorting
+                    // Determine if the student needs a sponsor based on an asterisk in the 'Sponsored by' field
                     const needsSponsor = sponsoredBy.includes('*');
 
                     return { studentName, course, sponsoredBy, needsSponsor };
                 });
 
-                // Sort students: those needing sponsor (with '*') first
+                // Sort students: those needing a sponsor (marked with '*') appear first
                 students.sort((a, b) => {
-                    if (a.needsSponsor && !b.needsSponsor) return -1; // a comes before b
-                    if (!a.needsSponsor && b.needsSponsor) return 1;  // b comes before a
-                    return 0; // maintain original relative order if both are same
+                    if (a.needsSponsor && !b.needsSponsor) return -1; // 'needsSponsor' comes before 'not needsSponsor'
+                    if (!a.needsSponsor && b.needsSponsor) return 1;  // 'not needsSponsor' comes after 'needsSponsor'
+                    return 0; // Maintain original relative order for items with the same 'needsSponsor' status
                 });
 
                 // Populate the table with sorted data
@@ -895,6 +1071,7 @@
             }
         }
 
+        // Fetch and populate student data when the DOM is fully loaded
         document.addEventListener('DOMContentLoaded', fetchAndPopulateStudents);
     </script>
 </body>
