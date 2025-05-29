@@ -65,7 +65,7 @@
 
         /* Main Content Container */
         .container {
-            max-width: 1200px;
+            max-width: 1200px; /* Default max-width for larger screens */
             margin: 0 auto;
             padding: 20px;
         }
@@ -213,7 +213,7 @@
             margin: 0 auto 30px auto; /* Added bottom margin */
         }
 
-        /* Container for WhatsApp button and Contact Card */
+        /* Container for WhatsApp button and Call button */
         .contact-cta-group {
             display: flex;
             flex-direction: row; /* Arranged horizontally */
@@ -224,7 +224,7 @@
             margin-top: 30px;
         }
 
-        /* WhatsApp Button within Sponsorship Section - Better and Bigger */
+        /* WhatsApp Button */
         .btn-whatsapp-sponsor {
             display: flex; /* Use flex to center content */
             align-items: center;
@@ -251,32 +251,33 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Contact Details Card */
-        .contact-card {
+        /* Call Button (formerly Contact Card) */
+        .btn-call-us {
             background-color: var(--contact-card-bg); /* New background color */
             color: var(--contact-card-text); /* New text color */
-            padding: 20px 40px; /* Consistent padding with button */
+            padding: 20px 40px; /* Consistent padding with WhatsApp button */
             border-radius: 25px; /* Consistent rounded corners */
             font-weight: bold;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
-            flex-grow: 1; /* Allow card to grow */
+            flex-grow: 1; /* Allow button to grow */
             max-width: 400px; /* Max width for consistency */
             box-sizing: border-box; /* Include padding in width */
             display: flex; /* Use flex to center content */
             flex-direction: column; /* Stack text inside vertically */
             align-items: center;
             justify-content: center;
+            text-decoration: none; /* Remove underline for link */
         }
 
-        .contact-card .contact-text {
+        .btn-call-us .call-text {
             font-size: 1.3em; /* Adjusted font size to match button */
             line-height: 1.2; /* Adjust line height for single line appearance */
             white-space: normal; /* Allow text wrapping */
             margin-bottom: 5px; /* Space between text and number */
         }
 
-        .contact-card .phone-number {
+        .btn-call-us .phone-number {
             font-size: 1.6em; /* Bigger font size for phone number */
             font-weight: bolder; /* Bolder font weight for phone number */
             color: var(--contact-card-text); /* Ensure phone number color matches card text */
@@ -306,7 +307,7 @@
 
         .student-stories {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* Adjusted min-width for cards */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted min-width for cards for better mobile fit */
             gap: 40px;
             margin-bottom: 50px;
         }
@@ -370,7 +371,7 @@
             display: inline-block; /* Changed to inline-block for better flow within flex */
             padding: 3px 6px; /* Smaller padding */
             border-radius: 4px; /* Slightly smaller border-radius */
-            font-size: 0.65em; /* Even smaller font size */
+            font-size: 0.6em; /* Even smaller font size */
             font-weight: normal;
             margin-top: 4px; /* Small vertical space from the name above */
             margin-left: 0; /* Remove left margin */
@@ -405,7 +406,7 @@
         }
 
         .tracker-table-container {
-            overflow-x: auto;
+            overflow-x: auto; /* Allows horizontal scrolling for table */
             border: 1px solid var(--border-color);
             border-radius: 15px;
             box-shadow: 0 5px 15px var(--shadow-light);
@@ -469,6 +470,22 @@
         }
 
         /* Responsive Design */
+        /* Larger Desktop Breakpoint (optional, for very wide screens) */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1300px; /* Increase max-width for very large screens */
+            }
+            .hero-section h1 {
+                font-size: 3.8em;
+            }
+            .hero-section p {
+                font-size: 1.6em;
+            }
+            h2 {
+                font-size: 3.2em;
+            }
+        }
+
         @media (max-width: 1024px) {
             .hero-section h1 {
                 font-size: 2.8em;
@@ -501,17 +518,14 @@
             .student-card p {
                 font-size: 1.1em;
             }
-            .btn-whatsapp-sponsor {
+            .btn-whatsapp-sponsor, .btn-call-us {
                 padding: 18px 35px; /* Adjust for smaller screens */
                 font-size: 1.2em;
             }
-            .contact-card {
-                padding: 18px 35px; /* Adjusted padding for consistency */
-            }
-            .contact-card .contact-text {
+            .btn-call-us .call-text {
                 font-size: 1.1em;
             }
-            .contact-card .phone-number {
+            .btn-call-us .phone-number {
                 font-size: 1.4em;
             }
         }
@@ -528,6 +542,8 @@
             }
             .hero-section h1 {
                 font-size: 2.2em;
+                /* Adjust line height for better mobile display of headline */
+                line-height: 1.3;
             }
             .hero-section p {
                 font-size: 1em;
@@ -547,27 +563,42 @@
                 max-width: 350px;
             }
             .tracker-table {
-                min-width: 100%;
+                min-width: 100%; /* Ensure table can scroll if content is too wide */
             }
             .tracker-table th, .tracker-table td {
                 padding: 12px 15px;
                 font-size: 0.9em;
             }
-            .btn-whatsapp-sponsor {
+            .btn-whatsapp-sponsor, .btn-call-us {
                 padding: 15px 30px;
                 font-size: 1.1em;
             }
-            .contact-card {
-                padding: 15px 30px; /* Adjusted padding for consistency */
-            }
-            .contact-card .contact-text {
+            .btn-call-us .call-text {
                 font-size: 1em;
             }
-            .contact-card .phone-number {
+            .btn-call-us .phone-number {
                 font-size: 1.2em;
             }
             .contact-cta-group {
                 flex-direction: column; /* Stack vertically on small screens */
+            }
+            .student-stories {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Further reduce min-width for mobile cards */
+                gap: 20px; /* Reduce gap on mobile */
+            }
+            .student-card {
+                padding: 25px; /* Reduce padding on mobile */
+            }
+            .student-card h3 {
+                font-size: 1.8em;
+                margin-bottom: 15px;
+            }
+            .student-card p {
+                font-size: 1.1em;
+            }
+            .badge-waiting, .badge-secured {
+                font-size: 0.6em; /* Keep badges very small */
+                padding: 2px 5px;
             }
         }
 
@@ -577,9 +608,7 @@
             }
             .hero-section h1 {
                 font-size: 1.8em;
-            }
-            .hero-logo {
-                max-width: 120px;
+                line-height: 1.4; /* Adjust line height for very small screens */
             }
             .hero-section p {
                 font-size: 0.9em;
@@ -595,6 +624,16 @@
             }
             .student-card h3 {
                 font-size: 1.5em;
+            }
+            .btn-whatsapp-sponsor, .btn-call-us {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            .btn-call-us .call-text {
+                font-size: 0.9em;
+            }
+            .btn-call-us .phone-number {
+                font-size: 1.1em;
             }
         }
     </style>
@@ -641,10 +680,10 @@
             
             <div class="contact-cta-group">
                 <a href="https://wa.me/917305585095" target="_blank" class="btn-whatsapp-sponsor">Chat with us on WhatsApp</a>
-                <div class="contact-card">
-                    <span class="contact-text">Call/ WhatsApp us - we'll guide you:</span>
+                <a href="tel:+917305585095" class="btn-call-us">
+                    <span class="call-text">Call us - We'll Guide you:</span>
                     <span class="phone-number">73055 85095</span>
-                </div>
+                </a>
             </div>
         </div>
     </section>
